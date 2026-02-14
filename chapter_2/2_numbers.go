@@ -1,4 +1,6 @@
-package chapter2
+package main
+
+import "math"
 
 func main2() {
 	// complex numbers
@@ -41,5 +43,9 @@ func main2() {
 		| string  | ""         |
 		| pointer | nil        |
 	*/
+
+	// math.MaxInt, math.MinInt
+	println("MaxInt:", math.MaxInt) // 2147483647 for 32-bit, 9223372036854775807 for 64-bit
+	println("MinInt:", math.MinInt) // -2147483648 for 32-bit, -9223372036854775808 for 64-bit
 
 }

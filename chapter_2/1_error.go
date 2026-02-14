@@ -1,4 +1,4 @@
-package chapter2
+package main
 
 import (
 	"errors"
