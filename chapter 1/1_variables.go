@@ -12,7 +12,7 @@ var AnotherGlobal int = -5678
 // Local Variable Without Initialization
 var j int
 
-func main() {
+func variables() {
 	// Local Variable With Initialization
 	var k int
 
