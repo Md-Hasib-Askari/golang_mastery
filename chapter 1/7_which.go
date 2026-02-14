@@ -9,7 +9,7 @@ func which() {
 	arguments := os.Args
 	if len(arguments) == 1 {
 		println("Usage: go run 7_which.go <command>")
-		return
+		os.Exit(1)
 	}
 
 	file := arguments[1]
@@ -31,7 +31,7 @@ func which() {
 
 		if mode&0111 != 0 {
 			println(fullPath)
-			return
+			os.Exit(1)
 		}
 
 	}
