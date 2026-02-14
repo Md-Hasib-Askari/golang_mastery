@@ -7,7 +7,7 @@ import (
 	"path"
 )
 
-func main() {
+func customLog() {
 	LOGFILE := path.Join(os.TempDir(), "mGo.log")
 
 	f, err := os.OpenFile(LOGFILE, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
