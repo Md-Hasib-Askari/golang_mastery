@@ -182,6 +182,27 @@ func deleteHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func readMapHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println("Serving: ", r.URL.Path, "from ", r.Host)
+
+	// Only allow GET requests
+	if r.Method != http.MethodGet {
+		http.Error(w, "Error: Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Convert the DATA map to JSON and write it to the response
+	jsonData, err := json.Marshal(DATA)
+	if err != nil {
+		http.Error(w, "Error: Unable to convert data to JSON", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	w.Write(jsonData)
+}
+
 func main() {
 	arguments := os.Args
 	if len(arguments) > 1 {
@@ -203,6 +224,7 @@ func main() {
 	mux.HandleFunc("/add", addHandler)
 	mux.HandleFunc("/get", getHandler)
 	mux.HandleFunc("/delete", deleteHandler)
+	mux.HandleFunc("/get-all", readMapHandler)
 	mux.HandleFunc("/", defaultHandler)
 
 	fmt.Println("Starting server on port", PORT)
