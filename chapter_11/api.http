@@ -1,0 +1,39 @@
+@baseUrl = http://localhost:1234
+
+### health check
+GET {{baseUrl}}/
+
+### Get all users
+GET {{baseUrl}}/get
+Content-Type: application/json
+
+{
+    "username": "John Doe",
+    "password": "secret123"
+}
+
+### Create a new user
+POST {{baseUrl}}/add
+Content-Type: application/json
+
+{
+  "username": "John Doe",
+  "password": "secret123"
+}
+
+### Update a user
+PUT {{baseUrl}}/update/1
+Content-Type: application/json
+{
+    "username": "John Doe Updated",
+    "password": "newsecret123"
+}
+
+### Delete a user
+DELETE {{baseUrl}}/delete
+Content-Type: application/json
+
+{
+    "username": "John Doe",
+    "password": "newsecret123"
+}
